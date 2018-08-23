@@ -48,6 +48,7 @@ usage() {
 	echo "usage: git flow release [list] [-v]"
 	echo "       git flow release start [-F] <version> [<base>]"
 	echo "       git flow release finish [-FsumpkS] <version>"
+	echo "		 git flow release test <version>"
 	echo "       git flow release publish <name>"
 	echo "       git flow release track <name>"
 }
@@ -159,6 +160,9 @@ cmd_start() {
 	require_base_is_on_develop
 	require_no_existing_release_branches
 
+	# Save version
+	git_do config gitflow.release.version.usage "$VERSION"	
+	
 	# sanity checks
 	require_clean_working_tree
 	require_branch_absent "$BRANCH"
@@ -362,4 +366,38 @@ cmd_track() {
 	echo "- A new remote tracking branch '$BRANCH' was created"
 	echo "- You are now on branch '$BRANCH'"
 	echo
+}
+
+cmd_test() {
+
+	
+
+	version_usage=$(git config --get gitflow.release.version.usage)
+	# Version X.Y.Z
+	BRANCH=$PREFIX$version_usage
+
+	echo $BRANCH
+
+	# Version X
+	version_max=$(echo $version_usage | cut -d'.' -f 1)
+	# Version Y
+	version_min=$(echo $version_usage | cut -d'.' -f 2)
+	# Version Z
+	version_correction=$(echo $version_usage | cut -d'.' -f 3)	
+	version_correction=$((version_correction+1))
+	# Version update
+	version_usage=$version_max.$version_min.$version_correction
+	echo $version_usage
+
+	# Update version usage git
+	git_do config gitflow.release.version.usage $version_usage
+
+	BRANCH=$PREFIX$version_usage
+
+	git_do checkout $DEVELOP_BRANCH
+	git_do branch -D $BRANCH
+	git_do checkout -b $BRANCH $DEVELOP_BRANCH
+
+
+	exit 0
 }
