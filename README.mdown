@@ -20,9 +20,12 @@ Or have a look at one of these screen casts:
 * [On the path with git-flow](http://codesherpas.com/screencasts/on_the_path_gitflow.mov) (by Dave Bock)
 
 
-Installing git-flow
+Installing linux
 -------------------
-See the Wiki for up-to-date [Installation Instructions](https://github.com/nvie/gitflow/wiki/Installation).
+```bash
+git submodules init ; git submodules update
+make install
+```
 
 
 Integration with your shell
