@@ -113,9 +113,18 @@ The ``-d`` flag will accept all defaults.
   
   		git flow release
   		git flow release start <release> [<base>]
-  		git flow release finish <release>
+		git flow release test
+  		git flow release finish
   
   For release branches, the `<base>` arg must be a commit on `develop`.
+
+* To list/start/finish bugfix branches, use:
+
+		git flow bugfix start
+		git flow bugfix start <release> [<base>]
+  		git flow bugfix finish <release>
+	
+	For bugfix branches, the `<base>` arg must be a commit on `develop`.
   
 * To list/start/finish hotfix branches, use:
   
@@ -132,11 +141,6 @@ The ``-d`` flag will accept all defaults.
   
   For support branches, the `<base>` arg must be a commit on `master`.
 
-* To start/test/finish release branches, use:
-
-		git flow release start <version>
-		git flow release test
-		git flow release finish
 
 Showing your appreciation
 =========================
