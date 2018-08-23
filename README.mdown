@@ -25,6 +25,7 @@ contributors, please see the [AUTHORS](AUTHORS) file.
 
 Any questions, tips, or general discussion can be posted to our Google group:
 [http://groups.google.com/group/gitflow-users](http://groups.google.com/group/gitflow-users)
+
 License terms
 -------------
 git-flow is published under the liberal terms of the BSD License, see the
