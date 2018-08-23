@@ -132,6 +132,10 @@ The ``-d`` flag will accept all defaults.
   
   For support branches, the `<base>` arg must be a commit on `master`.
 
+* To start/test/finish release branches, use:
+		git flow release start <version>
+		git flow release test
+		git flow release finish
 
 Showing your appreciation
 =========================
