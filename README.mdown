@@ -8,6 +8,8 @@ blog post").
 Installing linux
 -------------------
 ```bash
+git clone https://github.com/lbernardo/gitflow.git
+cd gitflow/
 git submodules init ; git submodules update
 make install
 ```
